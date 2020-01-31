@@ -1,0 +1,98 @@
+@import "./normalize.scss";
+@import "./variables.scss";
+
+/* Reset系 */
+*{
+  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",メイリオ,Meiryo,sans-serif;
+  color: #333;
+  line-height: 1.2em;
+  letter-spacing: 0.04em;
+  font-feature-settings: "palt";
+  box-sizing: border-box;
+}
+h1,h2,h3,h4,p{
+  margin: 0;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+}
+h1,h2,h3{
+  font-weight: 100;
+  letter-spacing: 0.05em;
+}
+
+/* スニペット系 */
+/* テキストの揃え */
+.center{
+  text-align: center;
+}
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+/* メディアクエリごとの要素の消去（ex:hidden-smをつけるとsm以下で消える） */
+.hidden-lg{
+  display: none;
+}
+@include mq(){
+  .hidden-lg{
+    display: inline;
+  }
+  .hidden-md{
+    display: none;
+  }
+}
+@include mq(sm){
+  .hidden-lg{
+    display: inline;
+  }
+  .hidden-sm{
+    display: none;
+  }
+}
+@include mq(xs){
+  .hidden-lg{
+    display: inline;
+  }
+  .hidden-xs{
+    display: none;
+  }
+}
+/* マージンリセット */
+.margin-reset{
+  margin: 0;
+}
+/* flexboxの揃え（.col-wrapの要素に付与する） */
+.wrap-left{
+  justify-content: flex-start;
+}
+.wrap-right{
+  justify-content: flex-end;
+}
+.wrap-center{
+  justify-content: center;
+}
+.wrap-top{
+  align-items: flex-start;
+}
+.wrap-bottom{
+  align-items: flex-end;
+}
+.wrap-middle{
+  align-items: center;
+}
+/* flexboxの揃え（.colの要素に付与する） */
+.col-top{
+  align-self: flex-start;
+}
+.col-bottom{
+  align-self: flex-end;
+}
+.col-middle{
+  align-self: center;
+}

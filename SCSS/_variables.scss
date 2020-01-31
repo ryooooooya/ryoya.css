@@ -1,0 +1,42 @@
+/* グリッド */
+$col-wid:64px;
+$gutter-wid:32px;
+$colwrap-wid: $col-wid * 12 + $gutter-wid * 12;
+$col-md-wid: $col-wid / $colwrap-wid * 100;
+$gutter-md-wid: $gutter-wid / $colwrap-wid * 100;
+$gutter-sp-wrap: 20px;
+
+/* フォント */
+$psize: 16px;
+$h1size: $psize * 4;
+
+/* ブレイクポイントの設定 min~max */
+$mq-breakpoints-min: (
+  'xs': '0px',
+  'sm': '481px',
+  'md': '769px',
+  'lg': $colwrap-wid + 1px,
+) !default;
+
+$mq-breakpoints-max: (
+  'xs': '480px',
+  'sm': '768px',
+  'md': $colwrap-wid,
+  'lg': '99999px',
+) !default;
+
+/* mq:それより小さい画面に適応 mq-target:そのメディアクエリのみ */
+@mixin mq-target($breakpoint: md) {
+  @media screen and (min-width: #{map-get($mq-breakpoints-min, $breakpoint)}) and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
+    @content;
+  }
+}
+
+@mixin mq($breakpoint: md) {
+  @media screen and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
+    @content;
+  }
+}
+
+/* アニメーション */
+$anim: all 500ms 0s cubic-bezier(0.19, 1, 0.22, 1);
