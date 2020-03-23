@@ -25,13 +25,14 @@ $mq-breakpoints-max: (
   'lg': '99999px',
 ) !default;
 
-/* mq:それより小さい画面に適応 mq-target:そのメディアクエリのみ */
+// そのメディアクエリのみ適応
 @mixin mq-target($breakpoint: md) {
   @media screen and (min-width: #{map-get($mq-breakpoints-min, $breakpoint)}) and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
     @content;
   }
 }
 
+// それより小さい画面に適応
 @mixin mq($breakpoint: md) {
   @media screen and (max-width: #{map-get($mq-breakpoints-max, $breakpoint)}) {
     @content;
@@ -40,3 +41,72 @@ $mq-breakpoints-max: (
 
 /* アニメーション */
 $anim: all 500ms 0s cubic-bezier(0.19, 1, 0.22, 1);
+
+/* テキストの揃え */
+.center{
+  text-align: center;
+}
+.left{
+  text-align: left;
+}
+.right{
+  text-align: right;
+}
+
+/* メディアクエリごとの要素の消去（ex:hidden-smをつけるとsm以下で消える） */
+.hidden-lg{
+  @include mq-target(lg){
+    display: none;
+  }
+}
+.hidden-md{
+  @include mq-target(md){
+    display: none;
+  }
+}
+.hidden-sm{
+  @include mq-target(sm){
+    display: none;
+  }
+}
+.hidden-xs{
+  @include mq-target(xs){
+    display: none;
+  }
+}
+
+/* マージンリセット */
+.margin-reset{
+  margin: 0;
+}
+
+/* flexboxの揃え（.col-wrapの要素に付与する） */
+.wrap-left{
+  justify-content: flex-start;
+}
+.wrap-right{
+  justify-content: flex-end;
+}
+.wrap-center{
+  justify-content: center;
+}
+.wrap-top{
+  align-items: flex-start;
+}
+.wrap-bottom{
+  align-items: flex-end;
+}
+.wrap-middle{
+  align-items: center;
+}
+
+/* flexboxの揃え（.colの要素に付与する） */
+.col-top{
+  align-self: flex-start;
+}
+.col-bottom{
+  align-self: flex-end;
+}
+.col-middle{
+  align-self: center;
+}
