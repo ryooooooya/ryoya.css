@@ -2,16 +2,10 @@
 $col-wid:53px;
 $gutter-wid:60px;
 $gutter-wid-sm:18px;
-
 $colwrap-wid: $col-wid * 12 + $gutter-wid * 12;
 $col-md-wid: $col-wid / $colwrap-wid * 100;
-
 $gutter-md-wid: $gutter-wid / $colwrap-wid * 100;
 $gutter-sp-wrap: 20px;
-
-/* フォント */
-$psize: 16px;
-$h1size: $psize * 4;
 
 /* ブレイクポイントの設定 min~max */
 $mq-breakpoints-min: (
@@ -46,11 +40,9 @@ $anim: all 500ms 0s cubic-bezier(0.19, 1, 0.22, 1);
 
 /* Reset系 */
 *{
-  font-family: -apple-system,BlinkMacSystemFont,"Helvetica Neue","游ゴシック Medium",YuGothic,YuGothicM,"Hiragino Kaku Gothic ProN",メイリオ,Meiryo,sans-serif;
   color: #333;
   line-height: 1.2em;
   letter-spacing: 0.04em;
-  font-feature-settings: "palt";
   box-sizing: border-box;
 }
 h1,h2,h3,h4,p{
@@ -63,6 +55,6 @@ img{
   max-width: 100%;
 }
 h1,h2,h3{
-  font-weight: 100;
+  font-weight: 400;
   letter-spacing: 0.05em;
 }

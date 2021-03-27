@@ -43,7 +43,7 @@
     width: $i * $col-wid + $i * $gutter-wid;
     padding: 0 $gutter-wid / 2;
     @include mq(){
-      width: $i * 100% / 12;
+      width: calc((100vw - (100vw - 100%)) / 12 * #{$i});
       padding: 0 $gutter-wid / 2;
     }
     @include mq(sm){
@@ -60,19 +60,19 @@
 @for $i from 1 through 12 {
   @include mq(md){
     .col-md-#{$i} {
-      width: $i * 100% / 12;
+      width: calc((100vw - (100vw - 100%)) / 12 * #{$i});
       padding: 0 $gutter-wid / 2;
     }
   }
   @include mq(sm){
     .col-sm-#{$i} {
-      width: $i * 100% / 12;
+      width: calc((100vw - (100vw - 100%)) / 12 * #{$i});
       padding: 0 $gutter-wid-sm / 2;
     }
   }
   @include mq(xs){
     .col-xs-#{$i} {
-      width: $i * 100% / 12;
+      width: calc((100vw - (100vw - 100%)) / 12 * #{$i});
       padding: 0 $gutter-wid-sm / 2;
     }
   }
@@ -268,14 +268,8 @@
 }
 
 // 入れ子の時
-.col-wrap{
-  > .col-wrap{
-    padding: 0;
-    > .col-wrap{
-      padding: 0;
-      > .col-wrap{
-        padding: 0;
-      }
-    }
-  }
-}
+// .col-wrap{
+//   > .col-wrap{
+//     padding: 0;
+//   }
+// }
