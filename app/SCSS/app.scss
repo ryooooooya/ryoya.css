@@ -1,6 +1,7 @@
+@import "./normalize.scss";
 @import "./grid.scss";
-@import "./base.scss";
 @import "./guide.scss";
+@import "./utility.scss";
 
 
 .t-nav{
@@ -8,9 +9,7 @@
 }
 
 h1{
-  font-size: $h1size;
-  font-weight: 100;
-  letter-spacing: 0.05em;
+  font-size: $h1size / 4;
   @include mq(){
     font-size: $h1size / 8 * 6;
   }
@@ -18,9 +17,8 @@ h1{
 
 h2{
   font-size: $h1size / 8 * 6;
-  font-weight: 100;
-  letter-spacing: 0.05em;
   margin-bottom: $h1size / 2;
+  margin-top: 32px;
   @include mq(){
     font-size: $h1size / 8 * 4;
   }
@@ -32,9 +30,8 @@ h2{
 
 h3{
   font-size: $h1size / 8 * 4;
-  font-weight: 100;
-  letter-spacing: 0.05em;
   margin-bottom: $h1size / 2;
+  margin-top: 32px;
   @include mq(){
     font-size: $h1size / 8 * 3;
   }

@@ -1,18 +1,19 @@
 @import "./variables.scss";
 
-/* Grid */
-.guide-wrap{
-  position: fixed;
-  top: 0;
-  height: 100%;
-  padding: 0;
-  z-index: 99999;
-  > .guide{
-    height: 100%;
-    @include mq(){
+.col-wrap{
+  .col{
+    p{
+      border: 1px solid #ccc;
+    }
+  }
+}
+
+@include mq(){
+  @if $gutter-wid / 2 < $gutter-sp-wrap{
+    .col-wrap{
       &::before{
         content: "";
-        width: $gutter-sp-wrap;
+        width: $gutter-sp-wrap - $gutter-wid / 2;
         background: rgba(0, 255, 242, 0.1);
         height: 100%;
         position: absolute;
@@ -21,7 +22,7 @@
       }
       &::after{
         content: "";
-        width: $gutter-sp-wrap;
+        width: $gutter-sp-wrap - $gutter-wid / 2;
         background: rgba(0, 255, 242, 0.1);
         height: 100%;
         position: absolute;
@@ -29,7 +30,17 @@
         right: 0;
       }
     }
-    > .col{
+  }
+}
+.guide-wrap{
+  position: fixed;
+  top: 0;
+  height: 100%;
+  padding: 0;
+  z-index: 99999;
+  .guide{
+    height: 100%;
+    .col{
       position: relative;
       border-left: 1px solid rgb(213, 0, 249);
       &::before{
@@ -40,8 +51,8 @@
         position: absolute;
         top: 0;
         left: 0;
-        @include mq(){
-          width: 12.5%;
+        @include mq(sm){
+          width: $gutter-wid-sm / 2;
         }
       }
       &::after{
@@ -52,8 +63,8 @@
         position: absolute;
         top: 0;
         right: 0;
-        @include mq(){
-          width: 12.5%;
+        @include mq(sm){
+          width: $gutter-wid-sm / 2;
         }
       }
       &:last-child{
